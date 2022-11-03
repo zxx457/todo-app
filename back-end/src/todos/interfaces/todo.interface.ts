@@ -1,10 +1,12 @@
 export interface TodoDate {
-  create: EpochTimeStamp;
-  update?: EpochTimeStamp;
-  delete?: EpochTimeStamp;
+  //unix ms timestamp
+  create: string;
+  update?: string;
+  delete?: string;
 }
 
 export interface Todo {
+  id: string;
   title: string;
   description?: string;
   done: boolean;

@@ -1,13 +1,13 @@
-import {ObjectType , Field} from '@nestjs/graphql'
+import { ObjectType, Field } from '@nestjs/graphql';
 
-@ObjectType({description: "todo item's date info"})
+@ObjectType({ description: "todo item's date info" })
 export class TodoDateModel {
   @Field()
-  create: Date
+  create: string;
 
-  @Field()
-  update: Date
+  @Field({ nullable: true })
+  update?: string;
 
-  @Field()
-  delete: Date
+  @Field({ nullable: true })
+  delete?: string;
 }

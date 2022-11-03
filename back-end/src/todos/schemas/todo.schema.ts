@@ -17,9 +17,9 @@ export class TodoSchemaClass {
 
   @Prop(
     raw({
-      create: { type: Number },
-      update: { type: Number, require: false },
-      dalete: { type: Number, require: false },
+      create: { type: String },
+      update: { type: String, require: false },
+      dalete: { type: String, require: false },
     }),
   )
   date: TodoDate;

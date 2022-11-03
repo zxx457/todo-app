@@ -9,18 +9,14 @@ type HelloModel {
 
 """todo item's date info"""
 type TodoDateModel {
-  create: Timestamp!
-  update: Timestamp!
-  delete: Timestamp!
+  create: String!
+  update: String
+  delete: String
 }
-
-"""
-`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
-"""
-scalar Timestamp
 
 """todo item"""
 type TodoModel {
+  id: String!
   title: String!
   description: String
   done: Boolean!
@@ -34,4 +30,19 @@ type Query {
 
 type Mutation {
   storeHello(input: String!): HelloModel!
+  addTodo(input: TodoInput!): TodoModel!
+}
+
+"""todo item input"""
+input TodoInput {
+  title: String!
+  description: String
+  done: Boolean!
+  date: TodoDateInput!
+}
+
+input TodoDateInput {
+  create: String!
+  update: String
+  delete: String
 }

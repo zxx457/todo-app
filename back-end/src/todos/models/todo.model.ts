@@ -4,6 +4,9 @@ import { TodoDateModel } from './tododate.model';
 @ObjectType({ description: 'todo item' })
 export class TodoModel {
   @Field()
+  id: string;
+
+  @Field()
   title: string;
 
   @Field({ nullable: true })
@@ -12,6 +15,6 @@ export class TodoModel {
   @Field()
   done: boolean;
 
-  @Field()
+  @Field((type) => TodoDateModel)
   date: TodoDateModel;
 }

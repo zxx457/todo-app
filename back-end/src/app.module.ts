@@ -12,7 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       autoSchemaFile: 'src/schema.gql',
       driver: ApolloDriver,
       buildSchemaOptions: {
-        dateScalarMode: 'timestamp',
+        dateScalarMode: 'isoDate',
       },
     }),
     MongooseModule.forRoot('mongodb://localhost/todo'),

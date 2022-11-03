@@ -1,3 +1,3 @@
-import { Todo } from '../interfaces/todo.interface';
+import { TodoSchemaClass } from '../schemas/todo.schema';
 
-export interface CreateTodoDto extends Todo {}
+export interface CreateTodoDto extends TodoSchemaClass {}
