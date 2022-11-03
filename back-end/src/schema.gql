@@ -2,17 +2,22 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""hello world ;)"""
+type HelloModel {
+  word: String!
+}
+
 """todo item's date info"""
 type TodoDateModel {
-  create: DateTime!
-  update: DateTime!
-  delete: DateTime!
+  create: Timestamp!
+  update: Timestamp!
+  delete: Timestamp!
 }
 
 """
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
 """
-scalar DateTime
+scalar Timestamp
 
 """todo item"""
 type TodoModel {
@@ -23,6 +28,10 @@ type TodoModel {
 }
 
 type Query {
-  hello: String!
+  hellos: [HelloModel!]!
   todos: [TodoModel!]!
+}
+
+type Mutation {
+  storeHello(input: String!): HelloModel!
 }

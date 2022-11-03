@@ -4,18 +4,19 @@ import { AppService } from './app.service';
 import { TodosModule } from './todos/todos.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
-    TodosModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
-      autoSchemaFile: "src/schema.gql",
+      autoSchemaFile: 'src/schema.gql',
       driver: ApolloDriver,
       buildSchemaOptions: {
-        dateScalarMode: 'isoDate',
+        dateScalarMode: 'timestamp',
       },
-
     }),
+    MongooseModule.forRoot('mongodb://localhost/todo'),
+    TodosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

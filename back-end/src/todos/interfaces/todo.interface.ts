@@ -1,7 +1,7 @@
 export interface TodoDate {
-  create: Date;
-  update?: Date;
-  delete?: Date;
+  create: EpochTimeStamp;
+  update?: EpochTimeStamp;
+  delete?: EpochTimeStamp;
 }
 
 export interface Todo {
