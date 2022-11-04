@@ -23,6 +23,12 @@ export class TodosResolver {
     return this.service.getTodos();
   }
 
+  @Query((returns) => TodoModel)
+  todo(@Args('id') id: string) {
+    return this.service.getTodoById(id);
+  }
+  
+
   @Mutation((returns) => TodoModel)
   addTodo(@Args('input') input: TodoInput) {
     return this.service.createTodos(input);

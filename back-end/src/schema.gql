@@ -26,6 +26,7 @@ type TodoModel {
 type Query {
   hellos: [HelloModel!]!
   todos: [TodoModel!]!
+  todo(id: String!): TodoModel!
 }
 
 type Mutation {
