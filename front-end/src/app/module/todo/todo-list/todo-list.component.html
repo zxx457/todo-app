@@ -1,0 +1,7 @@
+<ul class="list">
+  <li class="item" *ngFor="let todo of todos$ | async">
+    <input type="checkbox" id="todo-item-checkbox" onchange=" onCheckboxChange($event.checked,todo) " />
+    <app-todo-card></app-todo-card>
+    <button type="button" (click)="delete.emit(todo)" class="delete"  ></button>
+  </li>
+</ul>

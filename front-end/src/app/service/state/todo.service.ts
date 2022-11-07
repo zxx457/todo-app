@@ -8,8 +8,8 @@ import { TodoStore } from './todo.store';
 export class TodoStateService {
   constructor(
     private readonly store: TodoStore,
-    private readonly gql: TodoGqlService,
-    private readonly query: TodoQuery
+    private readonly query: TodoQuery,
+    private readonly gql: TodoGqlService
   ) {}
 
   async addTodo(item: Todo) {
@@ -33,7 +33,7 @@ export class TodoStateService {
     this.gql.queryTodos$().subscribe({
       next: (result) => {
         this.store.update((state) => ({
-          todos: result.data,
+          todos: result,
         }));
       },
       error: (err: any) => {
@@ -44,6 +44,7 @@ export class TodoStateService {
       },
     });
   }
+
   todos$() {
     this.watchTodos();
 

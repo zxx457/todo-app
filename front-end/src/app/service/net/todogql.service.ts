@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Apollo, MutationResult } from 'apollo-angular';
-import { ADD_TODO } from 'src/app/gql/mutate.todos';
-import { GET_ALL_TODOS } from 'src/app/gql/query.todos';
+import { map } from 'rxjs';
+import { ADD_TODO } from 'src/app/service/net/gql/mutate.todos';
+import { GET_ALL_TODOS } from 'src/app/service/net/gql/query.todos';
 import { QueryTodo, Todo } from 'src/app/interface/todo.interface';
 import { NetBase } from './net.base';
 
@@ -32,9 +33,15 @@ export class TodoGqlService extends NetBase {
   }
 
   queryTodos$() {
-    return this.apollo.watchQuery<Todo[]>({
-      query: GET_ALL_TODOS,
-    }).valueChanges;
+    return this.apollo
+      .watchQuery<Todo[]>({
+        query: GET_ALL_TODOS,
+      })
+      .valueChanges.pipe(
+        map((value) => {
+          return value.data;
+        })
+      );
   }
 
   queryTodos(): Promise<Todo[]> {

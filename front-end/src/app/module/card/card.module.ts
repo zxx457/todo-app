@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoCardComponent } from './todo-card/todo-card.component';
+import { FormsModule } from '@angular/forms'
 
 
 
@@ -9,7 +10,8 @@ import { TodoCardComponent } from './todo-card/todo-card.component';
     TodoCardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     TodoCardComponent

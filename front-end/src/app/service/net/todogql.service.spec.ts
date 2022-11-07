@@ -28,6 +28,15 @@ describe('test todo graphql service', () => {
     };
   });
 
+  it('should watch all todos, and emit when todo changes', async () => {
+    gqlService.queryTodos$().subscribe({
+      next: (result) => {
+        console.log("new msg  ++++++++++++++++++++++++++++++ ")
+        expect(result).toBeTruthy();
+      },
+    });
+  });
+
   it('should add todo', async () => {
     const result = await gqlService.addTodo(todoItem);
     expect(result).not.toBeUndefined();
